@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Input
 Ac = float(input("Enter carrier amplitude (Ac): "))
 f0 = float(input("Enter frequency for bit 0 (f0 in Hz): "))
 f1 = float(input("Enter frequency for bit 1 (f1 in Hz): "))
@@ -11,13 +10,10 @@ bits_input = input("Enter bit sequence (e.g. 1 0 1 0): ")
 
 bits = [int(b) for b in bits_input.split()]
 
-# Time axis
 t = np.linspace(0, len(bits) * bit_dur, int(fs * len(bits) * bit_dur), endpoint=False)
 
-# Message signal
 message = np.repeat(bits, int(fs * bit_dur))
 
-# FSK signal generation
 FSK_signal = []
 for b in bits:
     tb = np.linspace(0, bit_dur, int(fs * bit_dur), endpoint=False)
@@ -28,7 +24,6 @@ for b in bits:
 
 FSK_signal = np.array(FSK_signal)
 
-# Plot
 plt.figure()
 
 plt.subplot(2,1,1)
